@@ -1,0 +1,21 @@
+:pdf-stylesdir: theme
+:pdf-style: theme.yml
+:pdf-fontsdir: fonts
+:imagesdir: images
+
+:title-page-background-image: image:cover.png[]
+:lang: ja
+:scripts: cjk
+:doctype: book
+:pagenums:
+:icons: font
+:chapter-label:
+:figure-caption: Figure
+:example-caption: Example
+:table-caption: Table
+:appendix-caption: Appendix
+:toc-title: Topic
+:listing-caption: List
+:toc: left
+:toclevels: 5
+:sectnums:
