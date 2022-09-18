@@ -33,14 +33,14 @@ NOTE: If the display does not appear, adjust the variable resistor (in blue in F
 
 The following is a list of required materials. However, the development board must be powered via micro USB. If you want to operate the board in a place without a power supply, you will need to prepare a mobile battery or the like separately. A 1,000mAh mobile battery will last about 3 to 5 days. If the device is to be placed under the blazing sun, it is better to use one that generates little heat.
 
-. Materials List
+.Materials List
 |====
 |Display|WayinTop 1602 LCD Display module|920yen
 |Development Board|https://www.amazon.co.jp/gp/product/B08PNWB81Z/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1[ESP-WROOM-32 (5 pieces)]|4,799 yen (1 piece) 4,799 yen (959.8 yen per unit)
 |illuminance sensor| https://www.amazon.co.jp/KKHMF-GY-30-%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%85%89%E5%BC%B7%E5%BA%A6%E7%85%A7%E5%BA%A6%E3%82%BB%E3%83%B3%E3%82%B5-%E5%85%89%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-BH1750FVI/dp/B078S82XV7/ref=dp_prsubs_2?pd_rd_i=B078S82XV7&psc=1[GY-30]|193 yen
 |====
 
-. Prepare as needed.
+.Prepare as needed.
 |====
 |wire|https://www.amazon.co.jp/gp/product/B07H769GTK/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1[jumper wire]|999 yen
 |====
@@ -131,7 +131,7 @@ void loop()
 
 ESP32 can use Bluetooth and WiFi. As shown in the figure below, ESP32 is connected via WiFi and data is stored in Ambient on the Internet. The stored data can be checked by displaying it as a graph on a smartphone or PC browser.
 
-Configuration for visualization in .Ambient
+.Configuration for visualization in Ambient
 image::images/ambient_component.png[]
 
 A tutorial is available on the official Ambient page.
@@ -267,9 +267,20 @@ If you use a pass-through battery, you can keep the ESP32 running while charging
 To solve this problem, we used a lithium battery charger module and a lithium battery.
 Lithium batteries can be used as long as they are 3.7 V. Search Amazon for "lithium battery 3.7 V" and you will find a variety of lithium batteries.
 
-. Configuration diagram with battery module
+.Configuration diagram with battery module
 image:battery.png[]
 
-. Materials for using battery module
+.Materials for using battery module
 |====
-|3.7V lithium battery|https://www.amazon.co.jp/%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%90%E3%83%83%E3%83%86 %E3%83%AA-Vivan-Star-ESP32%E9%96%8B%E7%99%BA%E3%83%9C%E3
+|3.7V lithium battery|https://www.amazon.co.jp/%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%90%E3%83%83%E3%83%86%E3%83%AA-Vivan-Star-ESP32%E9%96%8B%E7%99%BA%E3%83%9C%E3%83%BC%E3%83%89%E7%94%A8%E4%BF%9D%E8%AD%B7%E3%83%9C%E3%83%BC%E3%83%89-1-25%E3%83%97%E3%83%A9%E3%82%B0%E4%BB%98%E3%81%8D3-7V-1100mAh%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E5%85%85%E9%9B%BB%E5%BC%8F%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC1S/dp/B08689FZGT/ref=sr_1_31?keywords=3.7v+%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC&qid=1662882439&sr=8-31[Lithium-ion battery 1100mAh (4 pcs)]|2,098 yen (524 yen / piece)
+|Lithium battery charger module|https://www.amazon.co.jp/gp/product/B07QTQ46XN/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1[TP4056 Type-C USB 5V 1 A (10 pieces)]|999 yen (100 yen / piece)
+|Slide switch|https://www.amazon.co.jp/ELPA-HK-SLS01H-%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81-1%E5%9B%%9E%E8%B7%AF2%E6%8E%A5%E7%82%B9/dp/B00BECS5A0/ref=sr_1_5?__mk_en_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81&qid=1662883368&s=diy&sr=1-5[Slide switch 1 circuit 2 contacts HK-SLS01H (2 pieces)]|171yen
+|====
+
+The following is how it looks like in a 100-yen seal case.
+
+.Surface
+image::imagesCENTER_0001_BURST20220911181728699_COVER.JPG[]
+
+.Back side
+image::images/CENTER_0001_BURST20220911181846427_COVER.JPG[]
