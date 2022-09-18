@@ -280,7 +280,7 @@ image:battery.png[]
 The following is how it looks like in a 100-yen seal case.
 
 .Surface
-image::imagesCENTER_0001_BURST20220911181728699_COVER.JPG[]
+image::images/CENTER_0001_BURST20220911181728699_COVER.JPG[]
 
 .Back side
 image::images/CENTER_0001_BURST20220911181846427_COVER.JPG[]
