@@ -4,14 +4,14 @@ include::setting.adoc[]
 
 == Introduction
 
-　First, we will introduce how to read the illuminance sensor value and display it on the display using "<<Display on LCD Display>>".
+First, we will introduce how to read the illuminance sensor value and display it on the display using "<<Display on LCD Display>>".
 
-　At first, we were visually checking the display every 5 minutes and recording the data, but this was too much work, so we considered whether it would be possible to record the data automatically.
+At first, we were visually checking the display every 5 minutes and recording the data, but this was too much work, so we considered whether it would be possible to record the data automatically.
 We found a free IoT data visualization service called Ambient. With this service, the illuminance is automatically recorded and can be checked graphically on a browser as shown in Figure 1. This method is introduced in "<<Automatic Illuminance Recording and Graphical Confirmation>>".
 This method does not require a display, so the system can be built inexpensively.
 
 .Graph display on the web with Ambient
-image::ambient_graph.png[].
+image::ambient_graph.png[]
 
 NOTE: https://ambidata.io/[Ambient] is a service for visualizing IoT data and user registration is free. Each user can create up to 8 channels, meaning that data can be sent from 8 devices at once.
 Each channel can register up to 3,000 data items per day. Storage period is 1 year.
@@ -20,7 +20,7 @@ Each channel can register up to 3,000 data items per day. Storage period is 1 ye
 == Display on LCD display
 
 .Configuration diagram
-image::wiring diagram.png[]
+image::diagram.png[]
 
 NOTE: The 1602A LCD can be connected directly to the ESP32, but the wiring will be complicated, so we will use an I2C conversion adapter. The conversion adapter and display should be soldered together. In the figure, they are connected on the front side for clarity, but it is more compact to connect them on the back side.
 
@@ -31,7 +31,7 @@ NOTE: If the display does not appear, adjust the variable resistor (in blue in F
 
 === List of materials
 
-　The following is a list of required materials. However, the development board must be powered via micro USB. If you want to operate the board in a place without a power supply, you will need to prepare a mobile battery or the like separately. A 1,000mAh mobile battery will last about 3 to 5 days. If the device is to be placed under the blazing sun, it is better to use one that generates little heat.
+The following is a list of required materials. However, the development board must be powered via micro USB. If you want to operate the board in a place without a power supply, you will need to prepare a mobile battery or the like separately. A 1,000mAh mobile battery will last about 3 to 5 days. If the device is to be placed under the blazing sun, it is better to use one that generates little heat.
 
 . Materials List
 |====
@@ -45,7 +45,7 @@ NOTE: If the display does not appear, adjust the variable resistor (in blue in F
 |wire|https://www.amazon.co.jp/gp/product/B07H769GTK/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1[jumper wire]|999 yen
 |====
 
-　We used the above display, but the following is smaller and cheaper, so we would like to try this one next time.
+We used the above display, but the following is smaller and cheaper, so we would like to try this one next time.
 
 https://www.amazon.co.jp/gp/product/B07FNFYZRV/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1[(Amazon) IIC I2C Serial OLED LCD Module I2C]
 
@@ -53,9 +53,9 @@ image::display_smart.png[]
 
 === Program
 
-　Program the ESP32 on the development board to display the data read from the illuminance sensor on the display.
+Program the ESP32 on the development board to display the data read from the illuminance sensor on the display.
 
-　Use the Arduino IDE to write the program.
+Use the Arduino IDE to write the program.
 
 ==== Installing the Arduino IDE
 
@@ -69,15 +69,18 @@ https://qiita.com/asagi_toyo/items/f5d07a6ed4d6667617f7 (Using ESP32 with Arduin
 NOTE: Although the type of ESP32 listed in the Aruduino IDE insole instructions above is different, the exact same procedure can be used for installation. 2.
 
 2. connect the ESP32 to the PC
-+ NOTE: The ESP32 is connected to the computer.
++
+NOTE: The ESP32 is connected to the computer.
 Connect the ESP32 to the PC. 3.
 
 3. write to ESP32
-+Connect the ESP32 to your computer.
++
+Connect the ESP32 to your computer.
 Write the following source code to ESP32 in the Arduino IDE.
 +Write the following source to the ESP32 using the Arduino IDE.
++
 [source,c]
-+ [source,c]
++
 .light_and_display
 ....
 #include <Wire.h>
@@ -126,10 +129,10 @@ void loop()
 
 == Automatic Illuminance Recording and Graphical Confirmation
 
-　ESP32 can use Bluetooth and WiFi. As shown in the figure below, ESP32 is connected via WiFi and data is stored in Ambient on the Internet. The stored data can be checked by displaying it as a graph on a smartphone or PC browser.
+ESP32 can use Bluetooth and WiFi. As shown in the figure below, ESP32 is connected via WiFi and data is stored in Ambient on the Internet. The stored data can be checked by displaying it as a graph on a smartphone or PC browser.
 
 Configuration for visualization in .Ambient
-image::ambient_component.png[].
+image::ambient_component.png[]
 
 A tutorial is available on the official Ambient page.
 For instructions on how to register Ambient, see the following section of this tutorial.
@@ -140,13 +143,13 @@ https://ambidata.io/docs/gettingstarted/ (Try using Ambient)
 
 Reference: https://ambidata.io/docs/esp8266/ (measuring temperature and humidity with an Arduino ESP8266 and sending it to Ambient for graphing)
 
-　To develop the program, first install the Ambient library in your own development environment: start the Arduino IDE, select "Manage Libraries..." from the "Tools" menu, and launch the Library Manager. Type "ambient" in the search window and install the "Ambient ESP32 ESP8266 lib" that appears.
+To develop the program, first install the Ambient library in your own development environment: start the Arduino IDE, select "Manage Libraries..." from the "Tools" menu, and launch the Library Manager. Type "ambient" in the search window and install the "Ambient ESP32 ESP8266 lib" that appears.
 
-image::installambientlib20200415.jpg[].
+image::installambientlib20200415.jpg[]
 
 === Wiring
 
-image::esp32_and_light.png[].
+image::esp32_and_light.png[]
 
 
 === Program.
@@ -236,15 +239,15 @@ void loop()
 
 === Energy saving
 
-　When it was on display, we didn't have to worry about the battery so much because we could just replace it when it ran out because we were visually watching it. However, when recording automatically, the ESP32 will be running for a long time, so it is important to save energy.
-　The ESP32 has a Deep Sleep mode in addition to the normal sleep mode. This Deep Sleep is 10 µA to 150 µA as shown below, which is considerably smaller than the normal sleep of 20 mA to 30 mA.
+When it was on display, we didn't have to worry about the battery so much because we could just replace it when it ran out because we were visually watching it. However, when recording automatically, the ESP32 will be running for a long time, so it is important to save energy.
+The ESP32 has a Deep Sleep mode in addition to the normal sleep mode. This Deep Sleep is 10 µA to 150 µA as shown below, which is considerably smaller than the normal sleep of 20 mA to 30 mA.
 
-image::a0cae113c106e958aa55e79525e769cf.png[].
+image::a0cae113c106e958aa55e79525e769cf.png[]
 
 Reference: https://flogics.com/wp/ja/2019/12/investigated-esp32-power-consumption-of-ble/
 
 
-　In the program, Deep Sleep is initiated at the following location.
+In the program, Deep Sleep is initiated at the following location.
 
 [source,c]
 ....
@@ -253,19 +256,19 @@ Reference: https://flogics.com/wp/ja/2019/12/investigated-esp32-power-consumptio
   esp_deep_sleep_start();
 ....
 
-　When Deep Sleep is performed, setup() is called again after sleep. For this reason, loop() is not executed, so all processing should be written in setup().
+When Deep Sleep is performed, setup() is called again after sleep. For this reason, loop() is not executed, so all processing should be written in setup().
 
 == To avoid running out of battery power
 
-　You can use a USB mobile battery to share power to the ESP32, but it will stop when the battery runs out.
+You can use a USB mobile battery to share power to the ESP32, but it will stop when the battery runs out.
 
-　If you use a pass-through battery, you can keep the ESP32 running while charging it, but pass-through batteries are more expensive than 100-yen batteries.
+If you use a pass-through battery, you can keep the ESP32 running while charging it, but pass-through batteries are more expensive than 100-yen batteries.
 
 To solve this problem, we used a lithium battery charger module and a lithium battery.
 Lithium batteries can be used as long as they are 3.7 V. Search Amazon for "lithium battery 3.7 V" and you will find a variety of lithium batteries.
 
 . Configuration diagram with battery module
-image:battery.png[].
+image:battery.png[]
 
 . Materials for using battery module
 |====
