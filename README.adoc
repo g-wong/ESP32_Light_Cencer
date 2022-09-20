@@ -1,6 +1,6 @@
 include::setting.adoc[]
 
-= Light Cencer on ESP32
+= Light Sensor on ESP32
 
 == Introduction
 
